@@ -421,6 +421,16 @@
     let wrongCount = 0;
 
     const totalBaseQuestions = baseQuestions.length;
+    let shuffledBaseQuestions = [];
+
+    function shuffleArray(items) {
+      const list = [...items];
+      for (let i = list.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [list[i], list[j]] = [list[j], list[i]];
+      }
+      return list;
+    }
 
     function setupTypeFilter() {
       const types = Array.from(new Set(baseQuestions.map((question) => question.type)));
@@ -473,7 +483,11 @@
         }
       }
 
-      const baseRemaining = baseQuestions.filter((question) => {
+      if (!shuffledBaseQuestions.length) {
+        shuffledBaseQuestions = shuffleArray(baseQuestions);
+      }
+
+      const baseRemaining = shuffledBaseQuestions.filter((question) => {
         const matchesType = getSelectedType() === "all" || question.type === getSelectedType();
         return matchesType && !usedQuestions.has(question.id);
       });
