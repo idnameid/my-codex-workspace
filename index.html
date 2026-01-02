@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>토익 문법 집중 훈련</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --primary: #2b6cb0;
+      --secondary: #4a5568;
+      --bg: #f7fafc;
+      --card: #ffffff;
+      --success: #2f855a;
+      --error: #c53030;
+    }
+    body {
+      margin: 0;
+      font-family: "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      background: var(--bg);
+      color: #1a202c;
+    }
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+    header {
+      margin-bottom: 24px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+    p {
+      margin: 0 0 12px;
+      color: var(--secondary);
+    }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+    .question-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      background: rgba(43, 108, 176, 0.12);
+      color: var(--primary);
+    }
+    .prompt {
+      font-size: 20px;
+      margin-bottom: 18px;
+    }
+    .choices {
+      display: grid;
+      gap: 10px;
+    }
+    label.choice {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+      background: #fff;
+      cursor: pointer;
+      transition: border 0.2s ease, box-shadow 0.2s ease;
+    }
+    label.choice:hover {
+      border-color: #cbd5f0;
+      box-shadow: 0 4px 8px rgba(45, 55, 72, 0.08);
+    }
+    input[type="radio"] {
+      accent-color: var(--primary);
+    }
+    .actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    button {
+      border: none;
+      border-radius: 10px;
+      padding: 12px 18px;
+      font-size: 15px;
+      cursor: pointer;
+      background: var(--primary);
+      color: #fff;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    button.secondary {
+      background: #e2e8f0;
+      color: #1a202c;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: 12px;
+      background: #f1f5f9;
+    }
+    .result.correct {
+      border-left: 6px solid var(--success);
+    }
+    .result.wrong {
+      border-left: 6px solid var(--error);
+    }
+    .result h3 {
+      margin-top: 0;
+    }
+    .explanation {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .note-section {
+      margin-top: 32px;
+    }
+    .note-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .note-item {
+      padding: 14px;
+      border-radius: 10px;
+      background: #fff5f5;
+      border: 1px solid #fed7d7;
+    }
+    .note-item h4 {
+      margin: 0 0 6px;
+    }
+    .muted {
+      color: #718096;
+      font-size: 14px;
+    }
+    .type-stats {
+      margin-top: 8px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .type-pill {
+      background: #edf2f7;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      color: #2d3748;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>토익 문법 집중 훈련</h1>
+      <p>문제를 풀고 정답을 확인하면 해설이 보이며, 틀린 유형을 기반으로 다음 문제가 자동 추천됩니다.</p>
+    </header>
+
+    <section class="card" id="quiz-card">
+      <div class="question-header">
+        <span class="badge" id="question-type">문제 유형</span>
+        <span class="muted" id="progress"></span>
+      </div>
+      <div class="type-stats" aria-label="누계 통계">
+        <span class="type-pill" id="correct-count">정답 0</span>
+        <span class="type-pill" id="wrong-count">오답 0</span>
+      </div>
+      <div class="actions" style="margin-top: 16px;">
+        <label class="muted" for="type-filter">문법 유형 선택</label>
+        <select id="type-filter">
+          <option value="all">종합 (전체 유형)</option>
+        </select>
+      </div>
+      <div class="prompt" id="question-text"></div>
+      <form id="choices" class="choices"></form>
+      <div class="actions">
+        <button type="button" id="check-button">정답 확인</button>
+        <button type="button" id="next-button" class="secondary" disabled>다음 문제</button>
+      </div>
+      <div id="result" class="result" hidden></div>
+    </section>
+
+    <section class="note-section">
+      <h2>오답 노트</h2>
+      <p class="muted">틀린 문제와 유형이 여기에 누적됩니다.</p>
+      <div id="wrong-types" class="type-stats"></div>
+      <div id="wrong-list" class="note-list"></div>
+    </section>
+  </div>
+
+  <script>
+    const baseQuestions = [
+      {
+        id: "q1",
+        type: "사역동사 make + O + 원형",
+        prompt: "The manager made the staff _____ earlier.",
+        choices: ["to leave", "leaving", "leave", "left"],
+        answer: 2,
+        explanation: "make + 목적어 + 동사원형",
+        translation: "관리자는 직원들이 더 일찍 떠나게 했다."
+      },
+      {
+        id: "q2",
+        type: "appoint + 명사 보어",
+        prompt: "The committee appointed Mr. Park _____ head of sales.",
+        choices: ["as", "to", "a", "for"],
+        answer: 2,
+        explanation: "appoint + 목적어 + 명사 (보어). as는 사용하지 않음.",
+        trap: "❌ appoint A as B",
+        translation: "위원회는 박 씨를 영업부장으로 임명했다."
+      },
+      {
+        id: "q3",
+        type: "find + O + 형용사",
+        prompt: "We found the instructions _____ unclear.",
+        choices: ["to be", "being", "—", "was"],
+        answer: 2,
+        explanation: "find + 목적어 + 형용사",
+        translation: "우리는 설명서가 불명확하다는 것을 알았다."
+      },
+      {
+        id: "q4",
+        type: "감각/사역 make + O + 원형",
+        prompt: "The news made everyone _____ worried.",
+        choices: ["to feel", "feeling", "feel", "felt"],
+        answer: 2,
+        explanation: "make + 목적어 + 동사원형",
+        trap: "make ≠ want",
+        translation: "그 소식은 모두를 걱정하게 만들었다."
+      },
+      {
+        id: "q5",
+        type: "consider + O + C",
+        prompt: "They considered the proposal _____ unacceptable.",
+        choices: ["to be", "being", "—", "was"],
+        answer: 2,
+        explanation: "consider + 목적어 + 형용사(보어)",
+        translation: "그들은 그 제안을 받아들일 수 없다고 여겼다."
+      },
+      {
+        id: "q6",
+        type: "call + O + 명사",
+        prompt: "The teacher called the student _____ leader.",
+        choices: ["as", "a", "to", "for"],
+        answer: 1,
+        explanation: "call + 목적어 + 명사 (보어)",
+        translation: "선생님은 그 학생을 리더라고 불렀다."
+      },
+      {
+        id: "q7",
+        type: "elect + O + 명사",
+        prompt: "The company elected her _____ chairperson.",
+        choices: ["as", "to", "—", "for"],
+        answer: 2,
+        explanation: "elect + 목적어 + 명사. as 사용 ❌",
+        translation: "회사는 그녀를 의장으로 선출했다."
+      },
+      {
+        id: "q8",
+        type: "leave + O + 형용사",
+        prompt: "He left the door _____ overnight.",
+        choices: ["open", "opening", "to open", "opened"],
+        answer: 0,
+        explanation: "leave + 목적어 + 형용사",
+        translation: "그는 문을 밤새 열어 두었다."
+      },
+      {
+        id: "q9",
+        type: "want + O + to부정사",
+        prompt: "The parents want their child _____ honest.",
+        choices: ["be", "being", "to be", "was"],
+        answer: 2,
+        explanation: "want + 목적어 + to부정사",
+        translation: "부모는 자녀가 정직하길 원한다."
+      },
+      {
+        id: "q10",
+        type: "prove + O + 형용사",
+        prompt: "The results proved the plan _____ effective.",
+        choices: ["to be", "being", "—", "was"],
+        answer: 2,
+        explanation: "prove + 목적어 + 형용사",
+        translation: "결과는 그 계획이 효과적임을 입증했다."
+      }
+    ];
+
+    const extraQuestionsByType = {
+      "사역동사 make + O + 원형": [
+        {
+          id: "ex-make-1",
+          type: "사역동사 make + O + 원형",
+          prompt: "The coach made the team _____ harder.",
+          choices: ["to practice", "practicing", "practice", "practiced"],
+          answer: 2,
+          explanation: "make + 목적어 + 동사원형",
+          translation: "코치는 팀이 더 열심히 연습하게 했다."
+        }
+      ],
+      "find + O + 형용사": [
+        {
+          id: "ex-find-1",
+          type: "find + O + 형용사",
+          prompt: "She found the meeting room _____ noisy.",
+          choices: ["to be", "being", "—", "was"],
+          answer: 2,
+          explanation: "find + 목적어 + 형용사",
+          translation: "그녀는 회의실이 시끄럽다고 느꼈다."
+        }
+      ],
+      "consider + O + C": [
+        {
+          id: "ex-consider-1",
+          type: "consider + O + C",
+          prompt: "They considered the contract _____ invalid.",
+          choices: ["to be", "being", "—", "was"],
+          answer: 2,
+          explanation: "consider + 목적어 + 형용사(보어)",
+          translation: "그들은 그 계약이 무효라고 여겼다."
+        }
+      ],
+      "leave + O + 형용사": [
+        {
+          id: "ex-leave-1",
+          type: "leave + O + 형용사",
+          prompt: "Please leave the window _____ when you go out.",
+          choices: ["open", "opening", "to open", "opened"],
+          answer: 0,
+          explanation: "leave + 목적어 + 형용사",
+          translation: "밖에 나갈 때 창문을 열어 둬 주세요."
+        }
+      ],
+      "want + O + to부정사": [
+        {
+          id: "ex-want-1",
+          type: "want + O + to부정사",
+          prompt: "She wants her brother _____ abroad.",
+          choices: ["study", "studying", "to study", "studied"],
+          answer: 2,
+          explanation: "want + 목적어 + to부정사",
+          translation: "그녀는 남동생이 해외에서 공부하길 원한다."
+        }
+      ],
+      "elect + O + 명사": [
+        {
+          id: "ex-elect-1",
+          type: "elect + O + 명사",
+          prompt: "The members elected him _____ treasurer.",
+          choices: ["as", "to", "—", "for"],
+          answer: 2,
+          explanation: "elect + 목적어 + 명사. as 사용 ❌",
+          translation: "회원들은 그를 재무 담당으로 선출했다."
+        }
+      ],
+      "appoint + 명사 보어": [
+        {
+          id: "ex-appoint-1",
+          type: "appoint + 명사 보어",
+          prompt: "The firm appointed Ms. Kim _____ director.",
+          choices: ["as", "to", "a", "for"],
+          answer: 2,
+          explanation: "appoint + 목적어 + 명사. as 사용 ❌",
+          translation: "그 회사는 김 씨를 이사로 임명했다."
+        }
+      ],
+      "call + O + 명사": [
+        {
+          id: "ex-call-1",
+          type: "call + O + 명사",
+          prompt: "They called the strategy _____ success.",
+          choices: ["as", "a", "to", "for"],
+          answer: 1,
+          explanation: "call + 목적어 + 명사 (보어)",
+          translation: "그들은 그 전략을 성공이라고 불렀다."
+        }
+      ],
+      "prove + O + 형용사": [
+        {
+          id: "ex-prove-1",
+          type: "prove + O + 형용사",
+          prompt: "The survey proved the policy _____ popular.",
+          choices: ["to be", "being", "—", "was"],
+          answer: 2,
+          explanation: "prove + 목적어 + 형용사",
+          translation: "설문조사는 그 정책이 인기 있음을 입증했다."
+        }
+      ]
+    };
+
+    const questionText = document.getElementById("question-text");
+    const questionType = document.getElementById("question-type");
+    const choicesForm = document.getElementById("choices");
+    const checkButton = document.getElementById("check-button");
+    const nextButton = document.getElementById("next-button");
+    const resultBox = document.getElementById("result");
+    const progress = document.getElementById("progress");
+    const wrongList = document.getElementById("wrong-list");
+    const wrongTypes = document.getElementById("wrong-types");
+    const correctCountLabel = document.getElementById("correct-count");
+    const wrongCountLabel = document.getElementById("wrong-count");
+    const typeFilter = document.getElementById("type-filter");
+
+    const usedQuestions = new Set();
+    const wrongQuestions = [];
+    const wrongTypeCounts = {};
+
+    let currentQuestion = null;
+    let questionIndex = 0;
+    let correctCount = 0;
+    let wrongCount = 0;
+
+    const totalBaseQuestions = baseQuestions.length;
+
+    function setupTypeFilter() {
+      const types = Array.from(new Set(baseQuestions.map((question) => question.type)));
+      types.forEach((type) => {
+        const option = document.createElement("option");
+        option.value = type;
+        option.textContent = type;
+        typeFilter.appendChild(option);
+      });
+    }
+
+    function getSelectedType() {
+      return typeFilter.value;
+    }
+
+    function updateCounts() {
+      correctCountLabel.textContent = `정답 ${correctCount}`;
+      wrongCountLabel.textContent = `오답 ${wrongCount}`;
+    }
+
+    function getNextPreferredType() {
+      if (getSelectedType() !== "all") {
+        return getSelectedType();
+      }
+      const entries = Object.entries(wrongTypeCounts).filter(([, count]) => count > 0);
+      if (!entries.length) {
+        return null;
+      }
+      entries.sort((a, b) => b[1] - a[1]);
+      return entries[0][0];
+    }
+
+    function pickQuestionFromPool(pool) {
+      const available = pool.filter((question) => !usedQuestions.has(question.id));
+      if (!available.length) {
+        return null;
+      }
+      return available[Math.floor(Math.random() * available.length)];
+    }
+
+    function getNextQuestion() {
+      const selectedType = getSelectedType();
+      if (selectedType === "all") {
+        const preferredType = getNextPreferredType();
+        if (preferredType && extraQuestionsByType[preferredType]) {
+          const picked = pickQuestionFromPool(extraQuestionsByType[preferredType]);
+          if (picked) {
+            return picked;
+          }
+        }
+      }
+
+      const baseRemaining = baseQuestions.filter((question) => {
+        const matchesType = getSelectedType() === "all" || question.type === getSelectedType();
+        return matchesType && !usedQuestions.has(question.id);
+      });
+      if (baseRemaining.length) {
+        return baseRemaining[0];
+      }
+
+      const extraPools = Object.values(extraQuestionsByType).flat();
+      const extraRemaining = extraPools.filter((question) => {
+        const matchesType = getSelectedType() === "all" || question.type === getSelectedType();
+        return matchesType && !usedQuestions.has(question.id);
+      });
+      if (extraRemaining.length) {
+        return extraRemaining[0];
+      }
+
+      return null;
+    }
+
+    function renderQuestion() {
+      currentQuestion = getNextQuestion();
+      if (!currentQuestion) {
+        questionText.textContent = "선택한 유형에서 더 이상 문제가 없습니다. 다른 유형을 선택해 주세요.";
+        questionType.textContent = "완료";
+        choicesForm.innerHTML = "";
+        checkButton.disabled = true;
+        nextButton.disabled = true;
+        resultBox.hidden = true;
+        progress.textContent = "";
+        return;
+      }
+
+      usedQuestions.add(currentQuestion.id);
+      questionIndex += 1;
+
+      questionText.textContent = currentQuestion.prompt;
+      questionType.textContent = currentQuestion.type;
+      progress.textContent = `진행: ${Math.min(questionIndex, totalBaseQuestions)} / ${totalBaseQuestions}`;
+      choicesForm.innerHTML = "";
+
+      currentQuestion.choices.forEach((choice, index) => {
+        const label = document.createElement("label");
+        label.className = "choice";
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = "choice";
+        input.value = index;
+        label.appendChild(input);
+        const span = document.createElement("span");
+        span.textContent = `${String.fromCharCode(65 + index)}. ${choice}`;
+        label.appendChild(span);
+        choicesForm.appendChild(label);
+      });
+
+      checkButton.disabled = false;
+      nextButton.disabled = true;
+      resultBox.hidden = true;
+      resultBox.textContent = "";
+    }
+
+    function renderWrongNotes() {
+      wrongList.innerHTML = "";
+      if (!wrongQuestions.length) {
+        wrongList.innerHTML = "<p class=\"muted\">아직 틀린 문제가 없습니다.</p>";
+      } else {
+        wrongQuestions.forEach((question) => {
+          const item = document.createElement("div");
+          item.className = "note-item";
+          item.innerHTML = `
+            <h4>${question.prompt}</h4>
+            <div class="muted">정답: ${String.fromCharCode(65 + question.answer)}. ${question.choices[question.answer]}</div>
+            <div class="muted">유형: ${question.type}</div>
+          `;
+          wrongList.appendChild(item);
+        });
+      }
+
+      wrongTypes.innerHTML = "";
+      const entries = Object.entries(wrongTypeCounts).filter(([, count]) => count > 0);
+      if (!entries.length) {
+        wrongTypes.innerHTML = "<span class=\"type-pill\">틀린 유형 없음</span>";
+        return;
+      }
+      entries.sort((a, b) => b[1] - a[1]);
+      entries.forEach(([type, count]) => {
+        const pill = document.createElement("span");
+        pill.className = "type-pill";
+        pill.textContent = `${type} (${count})`;
+        wrongTypes.appendChild(pill);
+      });
+    }
+
+    function handleCheckAnswer() {
+      const checked = choicesForm.querySelector("input[name=choice]:checked");
+      if (!checked) {
+        alert("선택지를 고른 후 정답을 확인해 주세요.");
+        return;
+      }
+
+      const userAnswer = Number(checked.value);
+      const isCorrect = userAnswer === currentQuestion.answer;
+
+      resultBox.hidden = false;
+      resultBox.className = `result ${isCorrect ? "correct" : "wrong"}`;
+      const heading = isCorrect ? "정답입니다!" : "틀렸어요.";
+
+      if (isCorrect) {
+        correctCount += 1;
+      } else {
+        wrongQuestions.push(currentQuestion);
+        wrongTypeCounts[currentQuestion.type] = (wrongTypeCounts[currentQuestion.type] || 0) + 1;
+        wrongCount += 1;
+      }
+
+      const trapText = currentQuestion.trap ? `<div>함정: ${currentQuestion.trap}</div>` : "";
+      resultBox.innerHTML = `
+        <h3>${heading}</h3>
+        <div class="explanation">
+          <div><strong>정답:</strong> ${String.fromCharCode(65 + currentQuestion.answer)}. ${currentQuestion.choices[currentQuestion.answer]}</div>
+          <div><strong>풀이:</strong> ${currentQuestion.explanation}</div>
+          ${trapText}
+          <div><strong>해석:</strong> ${currentQuestion.translation}</div>
+        </div>
+      `;
+
+      checkButton.disabled = true;
+      nextButton.disabled = false;
+      choicesForm.querySelectorAll("input").forEach((input) => {
+        input.disabled = true;
+      });
+
+      renderWrongNotes();
+      updateCounts();
+    }
+
+    checkButton.addEventListener("click", handleCheckAnswer);
+    nextButton.addEventListener("click", () => {
+      renderQuestion();
+    });
+    typeFilter.addEventListener("change", () => {
+      renderQuestion();
+    });
+
+    setupTypeFilter();
+    renderQuestion();
+    renderWrongNotes();
+    updateCounts();
+  </script>
+</body>
+</html>
