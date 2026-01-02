@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Question {
+  id          String   @id @default(cuid())
+  type        String
+  stem        String
+  choices     Json
+  answerIndex Int
+  explanation String
+  tags        Json
+  difficulty  Int
+  trapCode    String?
+  createdAt   DateTime @default(now())
+
+  attempts    Attempt[]
+}
+
+model Attempt {
+  id            String   @id @default(cuid())
+  userId        String?
+  sessionId     String
+  questionId    String
+  selectedIndex Int
+  isCorrect     Boolean
+  timeMs        Int
+  createdAt     DateTime @default(now())
+
+  question Question @relation(fields: [questionId], references: [id])
+
+  @@index([sessionId])
+  @@index([questionId])
+}

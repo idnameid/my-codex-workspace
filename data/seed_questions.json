@@ -1,0 +1,734 @@
+[
+  {
+    "type": "Part5",
+    "stem": "The manager made the staff _____ earlier.",
+    "choices": ["to leave", "leaving", "leave", "left"],
+    "answerIndex": 2,
+    "explanation": "make + 목적어 + 동사원형",
+    "tags": ["VERB_SYSTEM.NON_FINITES", "SENTENCE_STRUCTURE.SVOC"],
+    "difficulty": 2,
+    "trapCode": "MAKE_BASE"
+  },
+  {
+    "type": "Part5",
+    "stem": "The committee appointed Mr. Park _____ head of sales.",
+    "choices": ["as", "to", "a", "for"],
+    "answerIndex": 2,
+    "explanation": "appoint + 목적어 + 명사 보어",
+    "tags": ["SENTENCE_STRUCTURE.SVOC", "NOUN_PHRASE.DETERMINERS"],
+    "difficulty": 2,
+    "trapCode": "APPOINT_AS"
+  },
+  {
+    "type": "Part5",
+    "stem": "We found the instructions _____ unclear.",
+    "choices": ["to be", "being", "—", "was"],
+    "answerIndex": 2,
+    "explanation": "find + 목적어 + 형용사",
+    "tags": ["SENTENCE_STRUCTURE.SVOC", "MODIFIERS.ADJ_POSITION"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The news made everyone _____ worried.",
+    "choices": ["to feel", "feeling", "feel", "felt"],
+    "answerIndex": 2,
+    "explanation": "make + 목적어 + 동사원형",
+    "tags": ["VERB_SYSTEM.NON_FINITES", "SENTENCE_STRUCTURE.SVOC"],
+    "difficulty": 2,
+    "trapCode": "MAKE_BASE"
+  },
+  {
+    "type": "Part5",
+    "stem": "They considered the proposal _____ unacceptable.",
+    "choices": ["to be", "being", "—", "was"],
+    "answerIndex": 2,
+    "explanation": "consider + 목적어 + 형용사 보어",
+    "tags": ["SENTENCE_STRUCTURE.SVOC", "MODIFIERS.ADJ_POSITION"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The teacher called the student _____ leader.",
+    "choices": ["as", "a", "to", "for"],
+    "answerIndex": 1,
+    "explanation": "call + 목적어 + 명사 보어",
+    "tags": ["SENTENCE_STRUCTURE.SVOC", "NOUN_PHRASE.DETERMINERS"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The company elected her _____ chairperson.",
+    "choices": ["as", "to", "—", "for"],
+    "answerIndex": 2,
+    "explanation": "elect + 목적어 + 명사 보어",
+    "tags": ["SENTENCE_STRUCTURE.SVOC"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "He left the door _____ overnight.",
+    "choices": ["open", "opening", "to open", "opened"],
+    "answerIndex": 0,
+    "explanation": "leave + 목적어 + 형용사",
+    "tags": ["SENTENCE_STRUCTURE.SVOC", "MODIFIERS.ADJ_POSITION"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "The parents want their child _____ honest.",
+    "choices": ["be", "being", "to be", "was"],
+    "answerIndex": 2,
+    "explanation": "want + 목적어 + to부정사",
+    "tags": ["VERB_SYSTEM.NON_FINITES"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The results proved the plan _____ effective.",
+    "choices": ["to be", "being", "—", "was"],
+    "answerIndex": 2,
+    "explanation": "prove + 목적어 + 형용사",
+    "tags": ["SENTENCE_STRUCTURE.SVOC", "MODIFIERS.ADJ_POSITION"],
+    "difficulty": 3
+  },
+  {
+    "type": "Part5",
+    "stem": "A number of applicants _____ absent today.",
+    "choices": ["is", "are", "was", "be"],
+    "answerIndex": 1,
+    "explanation": "a number of + 복수동사",
+    "tags": ["NOUN_PHRASE.A_NUMBER_OF", "VERB_SYSTEM.TENSE"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The number of errors _____ decreasing.",
+    "choices": ["is", "are", "were", "be"],
+    "answerIndex": 0,
+    "explanation": "the number of + 단수동사",
+    "tags": ["NOUN_PHRASE.A_NUMBER_OF", "VERB_SYSTEM.TENSE"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "Either the manager or the employees _____ responsible.",
+    "choices": ["is", "are", "was", "be"],
+    "answerIndex": 1,
+    "explanation": "근접 주어 일치",
+    "tags": ["SENTENCE_STRUCTURE.SV", "VERB_SYSTEM.TENSE"],
+    "difficulty": 3
+  },
+  {
+    "type": "Part5",
+    "stem": "Each of the reports _____ filed on time.",
+    "choices": ["is", "are", "were", "be"],
+    "answerIndex": 0,
+    "explanation": "each of + 단수동사",
+    "tags": ["NOUN_PHRASE.QUANTIFIERS", "VERB_SYSTEM.TENSE"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The documents _____ by the assistant yesterday.",
+    "choices": ["prepare", "prepared", "were prepared", "are preparing"],
+    "answerIndex": 2,
+    "explanation": "수동태 + 과거시제",
+    "tags": ["VERB_SYSTEM.VOICE", "VERB_SYSTEM.TENSE"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "Ms. Lee has _____ the report already.",
+    "choices": ["finish", "finishing", "finished", "finishes"],
+    "answerIndex": 2,
+    "explanation": "현재완료: has + p.p",
+    "tags": ["VERB_SYSTEM.TENSE"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The brochure, along with the flyers, _____ on the desk.",
+    "choices": ["is", "are", "were", "be"],
+    "answerIndex": 0,
+    "explanation": "주어 일치: 주어는 brochure",
+    "tags": ["SENTENCE_STRUCTURE.SV", "VERB_SYSTEM.TENSE"],
+    "difficulty": 3
+  },
+  {
+    "type": "Part5",
+    "stem": "The candidate _____ by the panel when the CEO arrived.",
+    "choices": ["interviews", "was interviewing", "was interviewed", "interviewed"],
+    "answerIndex": 2,
+    "explanation": "수동태 + 과거진행",
+    "tags": ["VERB_SYSTEM.VOICE", "VERB_SYSTEM.ASPECT"],
+    "difficulty": 3
+  },
+  {
+    "type": "Part5",
+    "stem": "We will start the meeting _____ everyone arrives.",
+    "choices": ["although", "because", "once", "unless"],
+    "answerIndex": 2,
+    "explanation": "시간부사절 접속사",
+    "tags": ["CLAUSES.ADVERB"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "She spoke slowly _____ the audience could understand.",
+    "choices": ["so that", "even though", "if", "while"],
+    "answerIndex": 0,
+    "explanation": "목적 부사절",
+    "tags": ["CLAUSES.ADVERB"],
+    "difficulty": 3
+  },
+  {
+    "type": "Part5",
+    "stem": "The designer, _____ won the award, thanked her team.",
+    "choices": ["who", "which", "where", "what"],
+    "answerIndex": 0,
+    "explanation": "사람을 받는 주격 관계대명사",
+    "tags": ["CLAUSES.RELATIVE"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The office _____ we visited was newly renovated.",
+    "choices": ["where", "which", "who", "when"],
+    "answerIndex": 1,
+    "explanation": "목적격 관계대명사",
+    "tags": ["CLAUSES.RELATIVE"],
+    "difficulty": 3
+  },
+  {
+    "type": "Part5",
+    "stem": "I don't know _____ the shipment will arrive.",
+    "choices": ["when", "that", "so", "because"],
+    "answerIndex": 0,
+    "explanation": "간접의문문",
+    "tags": ["CLAUSES.NOUN"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The CEO said _____ the policy would change.",
+    "choices": ["what", "that", "whether", "when"],
+    "answerIndex": 1,
+    "explanation": "that-명사절",
+    "tags": ["CLAUSES.NOUN"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "Please submit the form _____ Friday.",
+    "choices": ["at", "by", "on", "in"],
+    "answerIndex": 1,
+    "explanation": "기한: by",
+    "tags": ["PREPOSITIONS.PATTERNS"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "The new rule applies _____ all employees.",
+    "choices": ["for", "to", "with", "by"],
+    "answerIndex": 1,
+    "explanation": "apply to",
+    "tags": ["PREPOSITIONS.PATTERNS"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "The meeting was postponed _____ a scheduling conflict.",
+    "choices": ["because", "because of", "although", "unless"],
+    "answerIndex": 1,
+    "explanation": "because of + 명사",
+    "tags": ["CLAUSES.ADVERB", "PREPOSITIONS.PATTERNS"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The advertisement was designed _____ attract young customers.",
+    "choices": ["so", "so that", "to", "for"],
+    "answerIndex": 2,
+    "explanation": "목적: to부정사",
+    "tags": ["VERB_SYSTEM.NON_FINITES"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The staff were busy _____ the venue for the event.",
+    "choices": ["prepare", "preparing", "to prepare", "prepared"],
+    "answerIndex": 1,
+    "explanation": "be busy + V-ing",
+    "tags": ["VERB_SYSTEM.NON_FINITES"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "Employees are required _____ their ID badges at all times.",
+    "choices": ["wear", "to wear", "wearing", "wore"],
+    "answerIndex": 1,
+    "explanation": "be required to V",
+    "tags": ["VERB_SYSTEM.NON_FINITES"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The conference room is _____ for the board meeting.",
+    "choices": ["reserve", "reserving", "reserved", "to reserve"],
+    "answerIndex": 2,
+    "explanation": "수동태/과거분사",
+    "tags": ["VERB_SYSTEM.VOICE"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The proposal was approved, _____ the budget was limited.",
+    "choices": ["and", "but", "so", "because"],
+    "answerIndex": 1,
+    "explanation": "대조: but",
+    "tags": ["CLAUSES.COORDINATION"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "The report explains both the costs _____ the benefits.",
+    "choices": ["or", "nor", "and", "but"],
+    "answerIndex": 2,
+    "explanation": "both A and B",
+    "tags": ["CLAUSES.COORDINATION"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "The assistant will call the client _____ he arrives.",
+    "choices": ["because", "until", "unless", "before"],
+    "answerIndex": 3,
+    "explanation": "시간: before",
+    "tags": ["CLAUSES.ADVERB"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The supervisor demanded that the report _____ revised.",
+    "choices": ["is", "be", "was", "being"],
+    "answerIndex": 1,
+    "explanation": "가정법 현재: demand that + 동사원형",
+    "tags": ["CLAUSES.NOUN", "VERB_SYSTEM.NON_FINITES"],
+    "difficulty": 4
+  },
+  {
+    "type": "Part5",
+    "stem": "The sales team worked _____ to meet the deadline.",
+    "choices": ["hard", "hardly", "hardness", "harden"],
+    "answerIndex": 0,
+    "explanation": "부사: hard",
+    "tags": ["MODIFIERS.ADV_POSITION"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "The new intern is _____ diligent than the previous one.",
+    "choices": ["more", "much", "most", "many"],
+    "answerIndex": 0,
+    "explanation": "비교급: more + 형용사",
+    "tags": ["MODIFIERS.ADJ_POSITION"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "The CEO gave the manager _____ award.",
+    "choices": ["a", "an", "the", "—"],
+    "answerIndex": 0,
+    "explanation": "단수 가산 명사 앞 관사 a",
+    "tags": ["NOUN_PHRASE.DETERMINERS", "SENTENCE_STRUCTURE.SVOO"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "Please keep the lobby _____ at night.",
+    "choices": ["quiet", "quietly", "quieter", "quietness"],
+    "answerIndex": 0,
+    "explanation": "keep + 목적어 + 형용사",
+    "tags": ["SENTENCE_STRUCTURE.SVOC", "MODIFIERS.ADJ_POSITION"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The HR team sent the memo _____ all departments.",
+    "choices": ["to", "for", "at", "by"],
+    "answerIndex": 0,
+    "explanation": "send A to B",
+    "tags": ["PREPOSITIONS.PATTERNS", "SENTENCE_STRUCTURE.SVOO"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "If the price increases, customers _____ buy less.",
+    "choices": ["would", "will", "were", "had"],
+    "answerIndex": 1,
+    "explanation": "조건절 + 미래시제",
+    "tags": ["CLAUSES.ADVERB", "VERB_SYSTEM.TENSE"],
+    "difficulty": 3
+  },
+  {
+    "type": "Part5",
+    "stem": "The training session was canceled _____ the instructor was ill.",
+    "choices": ["because", "so", "but", "unless"],
+    "answerIndex": 0,
+    "explanation": "이유: because",
+    "tags": ["CLAUSES.ADVERB"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "The project team has been _____ on the launch plan.",
+    "choices": ["work", "working", "worked", "works"],
+    "answerIndex": 1,
+    "explanation": "현재완료진행: has been + V-ing",
+    "tags": ["VERB_SYSTEM.ASPECT"],
+    "difficulty": 3
+  },
+  {
+    "type": "Part5",
+    "stem": "The assistant promised _____ the shipment details.",
+    "choices": ["confirm", "to confirm", "confirming", "confirmed"],
+    "answerIndex": 1,
+    "explanation": "promise + to부정사",
+    "tags": ["VERB_SYSTEM.NON_FINITES"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "Mr. Gomez, _____ the report, submitted it yesterday.",
+    "choices": ["completed", "completing", "complete", "to complete"],
+    "answerIndex": 1,
+    "explanation": "분사구문: 완료 후",
+    "tags": ["VERB_SYSTEM.NON_FINITES", "MODIFIERS.ADV_POSITION"],
+    "difficulty": 4
+  },
+  {
+    "type": "Part5",
+    "stem": "The notice will be posted in the lobby and _____ on the website.",
+    "choices": ["share", "sharing", "shared", "shares"],
+    "answerIndex": 2,
+    "explanation": "병렬 구조 + 수동태",
+    "tags": ["CLAUSES.COORDINATION", "VERB_SYSTEM.VOICE"],
+    "difficulty": 3
+  },
+  {
+    "type": "Part5",
+    "stem": "The applicant was the only person _____ the interview.",
+    "choices": ["pass", "to pass", "passing", "passed"],
+    "answerIndex": 1,
+    "explanation": "the only + to부정사",
+    "tags": ["VERB_SYSTEM.NON_FINITES"],
+    "difficulty": 3
+  },
+  {
+    "type": "Part5",
+    "stem": "The meeting room was large enough _____ fifty people.",
+    "choices": ["accommodate", "to accommodate", "accommodating", "accommodated"],
+    "answerIndex": 1,
+    "explanation": "enough to V",
+    "tags": ["VERB_SYSTEM.NON_FINITES"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The chairperson asked _____ the minutes before the meeting.",
+    "choices": ["review", "to review", "reviewing", "reviewed"],
+    "answerIndex": 1,
+    "explanation": "ask + to부정사",
+    "tags": ["VERB_SYSTEM.NON_FINITES"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The factory has reduced costs by _____ energy-efficient machines.",
+    "choices": ["install", "to install", "installing", "installed"],
+    "answerIndex": 2,
+    "explanation": "by + V-ing",
+    "tags": ["VERB_SYSTEM.NON_FINITES"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The intern wrote a summary, _____ the manager provided feedback.",
+    "choices": ["and", "but", "so", "or"],
+    "answerIndex": 0,
+    "explanation": "등위접속",
+    "tags": ["CLAUSES.COORDINATION"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "The analyst explained the results clearly, _____ the team understood them.",
+    "choices": ["so", "but", "unless", "because"],
+    "answerIndex": 0,
+    "explanation": "결과: so",
+    "tags": ["CLAUSES.COORDINATION"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The email was sent to everyone _____ works in the branch.",
+    "choices": ["which", "who", "where", "when"],
+    "answerIndex": 1,
+    "explanation": "사람 + 주격 관계대명사",
+    "tags": ["CLAUSES.RELATIVE"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The printer, _____ is in the lobby, is out of order.",
+    "choices": ["which", "who", "what", "when"],
+    "answerIndex": 0,
+    "explanation": "사물 + 관계대명사",
+    "tags": ["CLAUSES.RELATIVE"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "I will check _____ the shipment has arrived.",
+    "choices": ["whether", "because", "so", "after"],
+    "answerIndex": 0,
+    "explanation": "whether + 명사절",
+    "tags": ["CLAUSES.NOUN"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The policy explains _____ employees should report overtime.",
+    "choices": ["how", "though", "so", "unless"],
+    "answerIndex": 0,
+    "explanation": "how + 명사절",
+    "tags": ["CLAUSES.NOUN"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The assistant replied _____ the email immediately.",
+    "choices": ["to", "for", "with", "by"],
+    "answerIndex": 0,
+    "explanation": "reply to",
+    "tags": ["PREPOSITIONS.PATTERNS"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "We are responsible _____ the quarterly report.",
+    "choices": ["to", "for", "with", "by"],
+    "answerIndex": 1,
+    "explanation": "responsible for",
+    "tags": ["PREPOSITIONS.PATTERNS"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "The flight was delayed _____ heavy rain.",
+    "choices": ["because", "because of", "although", "while"],
+    "answerIndex": 1,
+    "explanation": "because of + 명사",
+    "tags": ["PREPOSITIONS.PATTERNS", "CLAUSES.ADVERB"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "The staff member asked me _____ the form again.",
+    "choices": ["sign", "to sign", "signing", "signed"],
+    "answerIndex": 1,
+    "explanation": "ask + to부정사",
+    "tags": ["VERB_SYSTEM.NON_FINITES"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The CEO suggested _____ the proposal later.",
+    "choices": ["review", "to review", "reviewing", "reviewed"],
+    "answerIndex": 2,
+    "explanation": "suggest + V-ing",
+    "tags": ["VERB_SYSTEM.NON_FINITES"],
+    "difficulty": 3
+  },
+  {
+    "type": "Part5",
+    "stem": "The CEO will be meeting the clients _____ Monday morning.",
+    "choices": ["in", "on", "at", "by"],
+    "answerIndex": 1,
+    "explanation": "요일: on",
+    "tags": ["PREPOSITIONS.PATTERNS"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "The team finished the project on time, _____ impressed the client.",
+    "choices": ["which", "who", "where", "what"],
+    "answerIndex": 0,
+    "explanation": "앞 문장을 받는 관계대명사 which",
+    "tags": ["CLAUSES.RELATIVE"],
+    "difficulty": 4
+  },
+  {
+    "type": "Part5",
+    "stem": "The director approved the budget _____ it was revised.",
+    "choices": ["after", "so", "because", "though"],
+    "answerIndex": 0,
+    "explanation": "시간: after",
+    "tags": ["CLAUSES.ADVERB"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The document must be signed by the applicant and _____ by the manager.",
+    "choices": ["verify", "verifying", "verified", "verifies"],
+    "answerIndex": 2,
+    "explanation": "병렬 수동태",
+    "tags": ["VERB_SYSTEM.VOICE", "CLAUSES.COORDINATION"],
+    "difficulty": 3
+  },
+  {
+    "type": "Part5",
+    "stem": "The training materials are _____ to new employees.",
+    "choices": ["provide", "provided", "providing", "to provide"],
+    "answerIndex": 1,
+    "explanation": "수동태",
+    "tags": ["VERB_SYSTEM.VOICE"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "The report should be submitted _____ the end of the month.",
+    "choices": ["by", "on", "at", "in"],
+    "answerIndex": 0,
+    "explanation": "기한: by",
+    "tags": ["PREPOSITIONS.PATTERNS"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "The receptionist was polite and _____ helpful.",
+    "choices": ["also", "either", "neither", "hardly"],
+    "answerIndex": 0,
+    "explanation": "또한: also",
+    "tags": ["MODIFIERS.ADV_POSITION", "CLAUSES.COORDINATION"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "We need _____ information before making a decision.",
+    "choices": ["many", "much", "few", "a few"],
+    "answerIndex": 1,
+    "explanation": "information은 불가산",
+    "tags": ["NOUN_PHRASE.QUANTIFIERS"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "There are _____ chairs than before.",
+    "choices": ["less", "few", "fewer", "little"],
+    "answerIndex": 2,
+    "explanation": "가산: fewer",
+    "tags": ["NOUN_PHRASE.QUANTIFIERS"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The manager spoke _____ about the new policy.",
+    "choices": ["clear", "clearly", "clearness", "cleared"],
+    "answerIndex": 1,
+    "explanation": "부사: clearly",
+    "tags": ["MODIFIERS.ADV_POSITION"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "The file was stored _____ the cabinet.",
+    "choices": ["in", "on", "at", "by"],
+    "answerIndex": 0,
+    "explanation": "장소: in",
+    "tags": ["PREPOSITIONS.PATTERNS"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "The sales report is due _____ noon.",
+    "choices": ["at", "on", "in", "by"],
+    "answerIndex": 0,
+    "explanation": "정확한 시각: at",
+    "tags": ["PREPOSITIONS.PATTERNS"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "The customers were satisfied, _____ they placed another order.",
+    "choices": ["so", "because", "although", "while"],
+    "answerIndex": 0,
+    "explanation": "결과: so",
+    "tags": ["CLAUSES.COORDINATION"],
+    "difficulty": 1
+  },
+  {
+    "type": "Part5",
+    "stem": "The speaker paused _____ the audience could take notes.",
+    "choices": ["so that", "because", "unless", "after"],
+    "answerIndex": 0,
+    "explanation": "목적: so that",
+    "tags": ["CLAUSES.ADVERB"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The employee was promoted _____ her strong performance.",
+    "choices": ["because", "because of", "though", "unless"],
+    "answerIndex": 1,
+    "explanation": "because of + 명사",
+    "tags": ["PREPOSITIONS.PATTERNS", "CLAUSES.ADVERB"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The manager asked the team _____ the deadline.",
+    "choices": ["meet", "to meet", "meeting", "met"],
+    "answerIndex": 1,
+    "explanation": "ask + to부정사",
+    "tags": ["VERB_SYSTEM.NON_FINITES"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The system allows users _____ their profiles online.",
+    "choices": ["update", "to update", "updating", "updated"],
+    "answerIndex": 1,
+    "explanation": "allow + to부정사",
+    "tags": ["VERB_SYSTEM.NON_FINITES"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The accountant prepared the report _____ it was needed.",
+    "choices": ["before", "because", "unless", "so"],
+    "answerIndex": 0,
+    "explanation": "시간: before",
+    "tags": ["CLAUSES.ADVERB"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The interns were busy _____ calls from customers.",
+    "choices": ["handle", "handling", "to handle", "handled"],
+    "answerIndex": 1,
+    "explanation": "be busy + V-ing",
+    "tags": ["VERB_SYSTEM.NON_FINITES"],
+    "difficulty": 2
+  },
+  {
+    "type": "Part5",
+    "stem": "The report is more detailed _____ last year's.",
+    "choices": ["than", "then", "that", "to"],
+    "answerIndex": 0,
+    "explanation": "비교: than",
+    "tags": ["MODIFIERS.ADJ_POSITION"],
+    "difficulty": 1
+  }
+]
